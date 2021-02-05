@@ -1,0 +1,205 @@
+/* Account Page */
+
+.accountPage {
+  padding: 0 !important;
+  margin-top: 30px;
+  max-width: 900px;
+}
+
+.account-header-row {
+  padding: 30px 0;
+}
+
+.accountMain {
+  max-width: 840px !important;
+  margin: auto !important;
+}
+
+.accountSectionHeader {
+  background-color: #dedede;
+  padding: 6px 12px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.accountSection {
+  padding: 12px 12px 48px 12px;
+}
+
+.order-segment {
+  margin-top: 30px;
+  margin-bottom: 40px !important;
+  padding: 0 !important;
+  border: 1px solid #cccccc!important;
+}
+
+.order-header {
+  background-color: #ffffde !important;
+  border-bottom: 1px solid #cccccc;
+  text-align: left;
+  padding: 12px;
+}
+
+.order-header p {
+  margin: 0 !important;
+}
+
+.order-header-top {
+  font-size: 10px;
+}
+
+.order-header-bottom {
+  font-size: 14px;
+}
+
+.order-header-id {
+  font-size: 10px;
+  text-align: right;
+}
+
+.order-header-details {
+  font-size: 14px;
+  color: #0497bf;
+  text-align: right !important;
+}
+
+.order-header-details:hover {
+  text-decoration: underline;
+}
+
+
+.order-main {
+  padding: 0 16px 20px;
+}
+
+.orderHeaderLabel {
+  border: none !important;
+  padding: 6px 0 6px 32px !important;
+}
+
+.orderTableHeaderItem {
+  font-weight: bold; text-align: center;
+  padding: 0 !important; width: 15%;
+}
+
+.orderItemImageCell {
+  text-align: center !important;
+  vertical-align: middle !important;
+  padding: 6px 12px !important;
+}
+
+.orderItem { text-align: left; font-size: 12px; padding: auto 12px !important; vertical-align: middle !important;}
+
+.orderNumbers {
+  padding: 34px 0 0 0 !important;
+}
+
+.orderTableHeaderName { width: 30%; }
+
+.orderTableHeader { padding: 0 !important; width: 15%; }
+
+
+
+/* Order */
+
+.pageOrder {
+  padding: 0 !important;
+  max-width: 1400px;
+}
+
+
+.order-content {
+  max-width: 840px !important;
+  margin: auto !important;
+  margin-top: 40px !important;
+  text-align: center;
+}
+
+.order-page-header {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.order-page-header h1 {
+  font-size: 32px;
+}
+
+.order-steps {
+  max-width: 600px;
+  margin: auto;
+}
+
+.order-summary {
+  margin: 50px auto;
+}
+
+.order-summary h4 {
+  margin-bottom: 30px;
+  font-size: 20px;
+  opacity: 0.6;
+}
+
+.order-summary h3 {
+  font-size: 20px;
+  text-align: right;
+  padding-right: 2%;
+}
+
+.order-item-list {
+  margin-bottom: 12px !important;
+}
+
+.order-item-image-col {
+  margin: auto;
+}
+
+.order-item-image {
+  height: 100px;
+  width: auto;
+  margin: auto;
+}
+
+.order-item-col {
+  text-align: left;
+  font-size: 14px;
+  padding: 12px 24px !important;
+}
+
+.order-item-col p {
+  margin: 6px 0;
+}
+
+.order-item-header {
+  font-size: 16px;
+}
+
+.order-sku {
+  font-size: 12px;
+  margin: 0 !important;
+}
+
+.continue-button-div {
+  text-align: center;
+  margin-top: 60px;
+  margin-bottom: 40px;
+}
+
+.continue-button {
+  background-color: #74a1a8 !important;
+  color: white !important;
+}
+
+.check-icon {
+  color: #69c78a !important
+}
+
+.step-icon {
+  background-color: #69c78a !important;
+  color: white !important;
+  box-shadow: none !important;
+}
+
+.cancel-label {
+  background-color: #3f51b5 !important;
+  color: white !important;
+}

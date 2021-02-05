@@ -1,0 +1,164 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Mallanna");
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700&display=swap');
+
+
+
+.styled-font-tn {
+  font-family: 'Nunito', Arial, Helvetica, sans-serif;
+  font-weight: 300;
+}
+
+.styled-font-md {
+  font-family: 'Nunito', Arial, Helvetica, sans-serif;
+  font-weight: 400;
+}
+
+.styled-font-bd {
+  font-family: 'Nunito', Arial, Helvetica, sans-serif;
+  font-weight: 700;
+}
+
+
+
+/* Index Page */
+
+.pageMain {
+  padding: 30px 0px;
+  max-width: 1860px;
+}
+
+.sidebar {
+  width: 280px;
+  max-width: 100%;
+  margin: 60px auto;
+}
+
+
+.productList {
+  padding: 32px 8px;
+}
+
+.productCard {
+  border: none;
+  padding: 36px 48px 48px !important;
+  text-align: center;
+}
+
+.productCard:hover {
+  box-shadow: 0px 0px 16px #b0b0b0;
+  transition: 0.25s;
+}
+
+
+.card-body {
+  text-align: center;
+}
+
+.card-name {
+  margin-top: 2px !important;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.card-desc {
+  margin-top: 6px !important;
+  font-size: 13px;
+  font-weight: 400;
+  min-height: 52px;
+}
+
+.card-price {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+
+@keyframes fadeIn {
+  0% { opacity: 0;}
+  100% { opacity: 1;}
+}
+
+@-moz-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-webkit-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+.add-to-cart-hidden {
+  visibility: hidden;
+  opacity: 0;
+  margin-top: 8px !important;
+}
+
+.add-to-cart {
+  animation: fadeIn 0.25s both;
+  margin-top: 8px !important;
+}
+
+/* Filters */
+
+.price-filter {
+  padding: 0 12px 0 0;
+  display: inline-block;
+}
+
+.filter-header {
+  margin-top: 16px;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif ;
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+
+
+/* Login */
+
+.pageSignIn {
+  padding: 30px 0 !important;
+  max-width: 800px;
+}
+
+.signInBox {
+  border: 1px solid #e0e0e0;
+  padding: 32px 16px;
+}
+
+.signInHeader {
+  background: var(--menuBgAlt);
+  font-size: 20px;
+  color: white;
+  padding: 12px;
+}
+
+.signInSelect {
+  display: inline-block;
+  padding: 0 40px 10px 0;
+  font-weight: bold;
+}
+
+.signInInput {
+  max-width: 400px;
+}
+
+
+
+/* Footer */
+
+.footer {
+  padding: 2em;
+  margin-top: 60px;
+  background-color: #ebebeb;
+  color: rgba(0,0,0, 0.3);
+  font-size: 12px;
+  text-align: center;
+  width:100%;
+  /* flex-shrink: 0; */
+}

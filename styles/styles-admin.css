@@ -1,0 +1,266 @@
+.admin-page {
+  padding: 20px 0;
+  max-width: 1860px;
+}
+
+.admin-menu {
+  /* margin-bottom: 20px; */
+}
+
+.admin-main {
+  padding-top: 40px !important;
+}
+
+.admin-left {
+  width: 20%;
+  min-width: 200px;
+  padding: 6px 0;
+}
+
+.admin-right {
+  width: 75%;
+  max-width: 1160px;
+  margin-left: 5%;
+}
+
+.sidebar-admin {
+  width: 280px;
+  max-width: 100%;
+  margin: auto;
+}
+
+.sidebar-element {
+  margin-bottom: 70px;
+}
+
+.sidebar-select {
+  margin: 90px 0;
+}
+
+.search-bar {
+  border: 1px solid #e0e0e0;
+  border-radius: 6px !important;
+  vertical-align: middle !important;
+  padding: 2px 3%;
+}
+
+.searchBarInput {
+  display: inline-block;
+  margin: auto !important;
+  width: 86% !important;
+}
+
+.searchBarButton {
+  display: inline-block;
+  background-color: white !important;
+  padding: 0;
+  text-align: right !important;
+  width: 10%;
+}
+
+.clear-button {
+  border: none;
+  color: #729cb8;
+  font-size: 14px;
+  float: right;
+}
+
+.clear-button:hover {
+  color: #658aa3;
+}
+
+.sidebar-include {
+  margin-top: 90px;
+  margin-bottom: 160px;
+}
+
+.MuiFormControl-root {
+  width: 96%;
+}
+
+
+.new-product-button {
+  text-align: center;
+  margin-top: 140px;
+}
+
+
+/* Product Table */
+
+.admin-table {
+  table-layout: fixed;
+}
+
+.table-col-lg {
+  width: 35%;
+}
+
+.table-col-md {
+  width: 13%;
+}
+
+.table-col-sm {
+  width: 6.5%;
+}
+
+.admin-table td, th {
+  vertical-align: middle !important;
+  overflow: hidden;
+}
+
+.mini-image {
+  margin: auto;
+}
+
+.product-row {
+  padding: auto !important;
+}
+
+.product-row:hover {
+  background-color: #ffffde !important;
+}
+
+td {
+  padding: auto !important;
+}
+
+td a{
+  color: black;
+}
+
+td a:hover {
+  color: black;
+  text-decoration: none;
+}
+
+
+.table {
+  text-align: center;
+  vertical-align: middle;
+  padding: 30%;
+}
+
+.imageColumn {
+  width: 50px;
+}
+
+.shortDesc {
+  font-size: 11px;
+  font-weight: 300;
+  margin-top: 0 !important;
+}
+
+.addProduct {
+  width: 100px;
+  padding: 20px 0;
+}
+
+.edit-product-button {
+  padding: 12px !important;
+  border: none;
+  background-color: inherit !important;
+  color: rgba(0, 0, 0, 0.6) !important;
+  font-size: 13px !important;
+  opacity: 0;
+  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif !important;
+  font-weight: 700 !important;
+}
+
+.edit-product-button:hover {
+  opacity: 1;
+}
+
+.edit-product-title {
+  color: #729cb8;
+}
+
+.discontinue-button {
+  text-align: right;
+  margin-bottom: 18px;
+}
+
+.table-col-header {
+  border: none;
+  font-family: -apple-system, system-ui, "Segoe UI", Roboto;
+  font-weight: bold;
+}
+
+
+/* Pagination */
+
+.ui.menu {
+  margin: auto;
+  color: white;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+}
+
+.ui.menu .item {
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 14px;
+  outline: 0px solid transparent;
+}
+
+.ui.menu .item:before {
+  background: transparent;
+}
+
+.ui.menu a.item:hover {
+  color: black;
+}
+
+.ui.pagination.menu .active.item {
+  color: #7cb3d9;
+}
+
+
+/* Edit Order Modal */
+
+.order-modal {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.order-modal-header {
+  text-align: center;
+  margin: 20px auto !important;
+}
+
+.order-modal-header p {
+  margin: 0 !important;
+}
+
+.order-modal-main {
+  margin-top: 60px;
+  padding-left: 30px;
+}
+
+.order-modal-item-list {
+  margin-bottom: 24px !important;
+}
+
+.order-modal-image-col {
+  width: 27% !important;
+  margin: auto !important;
+}
+
+.order-modal-item-col {
+  width: 73% !important;
+  text-align: left;
+  margin: auto !important;
+  font-size: 14px;
+  padding: 0;
+}
+
+.order-modal-item-col p {
+  margin: 6px 0;
+}
+
+.order-modal-sku {
+  font-size: 12px;
+}
+
+.order-status-select {
+  margin: 40px auto !important;
+  width: 180px !important;
+}
