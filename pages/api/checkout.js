@@ -1,5 +1,5 @@
 import Stripe from "stripe";
-import uuidv4 from "uuidv4";
+import { v4 as uuidv4 } from 'uuid';
 import jwt from "jsonwebtoken";
 import Cart from "../../models/Cart";
 import User from "../../models/User";
