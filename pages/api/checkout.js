@@ -9,7 +9,7 @@ import connectDb from "../../utils/connectDb";
 
 connectDb();
 
-const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
+const stripe = Stripe(process.env.STRIPE_SECRET);
 
 export default async (req, res) => {
   const { paymentData, cartProducts } = req.body;
