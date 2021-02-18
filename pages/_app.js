@@ -20,6 +20,7 @@ import '../styles/styles-account.css';
 class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
     const { token } = parseCookies(ctx);
+    const { tokenAdmin } = parseCookies(ctx);
 
     let pageProps = {};
 
@@ -27,29 +28,29 @@ class MyApp extends App {
       pageProps = await Component.getInitialProps(ctx);
     }
 
-    if (!token) {
-      const protectedRoute = ctx.pathname.startsWith("/account") || ctx.pathname.startsWith("/admin");
-      if (protectedRoute) {
+
+    const userRoute = ctx.pathname.startsWith("/account");
+    const adminRoute = ctx.pathname.startsWith("/admin");
+
+    if (userRoute || adminRoute) {
+      if ((userRoute && !token) || (adminRoute && !tokenAdmin)) {
         redirectUser(ctx, "/login");
-      }
-    } else {
-      try {
-        const payload = { headers: { Authorization: token } };
-        const url = `${baseUrl}/api/account`;
-        const response = await axios.get(url, payload);
-        const user = response.data;
-        const admin = user.role === "root" || user.role === "admin";
-        const adminRoute = ctx.pathname.startsWith("/admin");
-        if (adminRoute && !admin) {
-          redirectUser(ctx, "/");
+      } else {
+        try {
+          const payload = { headers: { Authorization: token } };
+          const url = `${baseUrl}/api/account`;
+          const response = await axios.get(url, payload);
+          const user = response.data;
+          pageProps.user = user;
+        } catch (error) {
+          console.error("Error getting current user", error);
+          destroyCookie(ctx, "token");
+          destroyCookie(ctx, "tokenAdmin");
+          redirectUser(ctx, "/login");
         }
-        pageProps.user = user;
-      } catch (error) {
-        console.error("Error getting current user", error);
-        destroyCookie(ctx, "token");
-        redirectUser(ctx, "/login");
       }
     }
+
 
     if (!token) {
       pageProps.cartProducts = [];

@@ -228,7 +228,7 @@ export default function Products({ products, totalPages }) {
 Products.getInitialProps = async ctx => {
   const { tokenAdmin } = parseCookies(ctx);
   if (!tokenAdmin) {
-    redirectUser(ctx, "/");
+    redirectUser(ctx, "/login");
   }
   const page = ctx.query.page ? ctx.query.page : "1";
   const size = 15;

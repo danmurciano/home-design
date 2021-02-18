@@ -98,14 +98,14 @@ function CartItemList({ user, products, handleRemoveFromCart }) {
            />
            <p class="cartUpdateButtons">
              <Button
-               class="clearButton"
+               className="clearButton"
                onClick={event => handleUpdate(quantity, p.product._id)}
                content="Update"
              />
            </p>
            <p class="cartUpdateButtons">
              <Button
-               class="clearButton"
+               className="clearButton"
                onClick={event => handleRemoveFromCart(p.product._id)}
                content="Remove"
              />

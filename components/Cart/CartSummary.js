@@ -34,7 +34,7 @@ export default function CartSummary({ products, handleCheckout, success }) {
             shippingAddress={true}
             billingAddress={true}
             zipCode={true}
-            stripeKey={process.env.STRIPE_KEY}
+            stripeKey="pk_test_51H7Xj8HM0g7Jn1RdQ8DsvY0xqcv3ApRIeODnlIKQPdOxmfwwe01wap99AQSNjhoNWOJNRAQQuXzXvlhg2g4jpSaj00Gsql7Nrs"
             token={handleCheckout}
             triggerEvent="onClick"
           >
