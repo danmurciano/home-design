@@ -29,11 +29,28 @@ class MyApp extends App {
     }
 
 
-    const userRoute = ctx.pathname.startsWith("/account");
-    const adminRoute = ctx.pathname.startsWith("/admin");
+    let route;
+    if (ctx.pathname.startsWith("/account")) {
+      route = "user";
+    } else if (ctx.pathname.startsWith("/admin")) {
+      route = "admin";
+    } else {
+      route = "general";
+    }
 
-    if (userRoute || adminRoute) {
-      if ((userRoute && !token) || (adminRoute && !tokenAdmin)) {
+    if (!token) {
+      switch(route) {
+        case "user":
+        redirectUser(ctx, "/login");
+        break;
+        case "admin":
+        redirectUser(ctx, "/login");
+        break;
+        case "general":
+        break;
+      }
+    } else {
+      if (route === "admin" && !tokenAdmin) {
         redirectUser(ctx, "/login");
       } else {
         try {
@@ -55,10 +72,14 @@ class MyApp extends App {
     if (!token) {
       pageProps.cartProducts = [];
     } else {
-      const url = `${baseUrl}/api/cart`;
-      const payload = { headers: { Authorization: token }};
-      const response = await axios.get(url, payload);
-      pageProps.cartProducts = response.data;
+      try {
+        const url = `${baseUrl}/api/cart`;
+        const payload = { headers: { Authorization: token }};
+        const response = await axios.get(url, payload);
+        pageProps.cartProducts = response.data;
+      } catch (error) {
+        console.error("Error getting current user", error);
+      }
     }
 
     return { pageProps };
