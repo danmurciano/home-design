@@ -24,11 +24,6 @@ class MyApp extends App {
 
     let pageProps = {};
 
-    if (Component.getInitialProps) {
-      pageProps = await Component.getInitialProps(ctx);
-    }
-
-
     let route;
     if (ctx.pathname.startsWith("/account")) {
       route = "user";
@@ -47,12 +42,18 @@ class MyApp extends App {
         redirectUser(ctx, "/login");
         break;
         case "general":
+        if (Component.getInitialProps) {
+          pageProps = await Component.getInitialProps(ctx);
+        }
         break;
       }
     } else {
       if (route === "admin" && !tokenAdmin) {
         redirectUser(ctx, "/login");
       } else {
+        if (Component.getInitialProps) {
+          pageProps = await Component.getInitialProps(ctx);
+        }
         try {
           const payload = { headers: { Authorization: token } };
           const url = `${baseUrl}/api/account`;
