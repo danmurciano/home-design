@@ -1,7 +1,9 @@
 import React from "react";
 import { useRouter } from "next/router";
 import axios from "axios";
+import { Sidebar, Grid, Icon, Button } from "semantic-ui-react";
 import { Row, Col } from "react-bootstrap";
+import UserSideBar from "../components/Index/UserSidebar";
 import ProductList from "../components/Index/ProductList";
 import SearchBar from "../components/Filters/SearchBar";
 import ProductSort from "../components/Filters/ProductSort";
@@ -35,10 +37,37 @@ export default function Home({ user, products, totalPages }) {
   const [pageState, setPageState] = React.useState("1");
   let page = pageState;
 
+  const [visible, setVisible] = React.useState(false)
+
   const [success, setSuccess] = React.useState(false);
   const [loading, setLoading] = React.useState(false);
   const [disabled, setDisabled] = React.useState(true);
   const [error, setError] = React.useState("");
+
+  const [screenWidth, setScreenWidth] = React.useState(1920);
+
+
+  React.useEffect(() => {
+    setScreenWidth(window.innerWidth);
+  });
+
+  React.useEffect(() => {
+    function handleResize() {
+      setScreenWidth(window.innerWidth);
+    }
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+
+  function handleFiltersButton() {
+    if (visible === false) {
+      setVisible(true);
+    } else {
+      setVisible(false);
+    }
+  }
+
 
 
   function handleChange(event) {
@@ -98,67 +127,90 @@ export default function Home({ user, products, totalPages }) {
     const categoryParam = category !== "" ? `category=${category}&` : "";
     const pageParam = page !== "" ? `page=${page}` : "";
     router.push(`/?${searchParam + minValueParam + maxValueParam + sortByParam + categoryParam + pageParam}`);
+    setVisible(false);
   }
 
 
   return (
     <div class="container-fluid pageMain">
-      <div class="row">
-        <div class="admin-left">
-          <div class="sidebar">
-            <div class="sidebar-element">
-              <SearchBar
-                label="PRODUCT"
-                value={searchState}
+
+      {screenWidth >= 1080 ? (
+        <div class="row">
+          <div class="admin-left">
+            <UserSideBar
+              searchState={searchState}
+              minValueState={minValueState}
+              maxValueState={maxValueState}
+              sortByState={sortByState}
+              categoryState={categoryState}
+              handleChange={handleChange}
+              handleClearSearch={handleClearSearch}
+              handleSubmit={handleSubmit}
+              handleClearPrice={handleClearPrice}
+            />
+          </div>
+
+          <div class="admin-right">
+            <div>
+              <ProductList user={user} products={products} />
+            </div>
+            <div>
+              <PagePagination
+                pageState={pageState}
+                totalPages={totalPages}
+                handlePageSelect={handlePageSelect}
+              />
+            </div>
+          </div>
+        </div>
+
+      ) : (
+
+        <div>
+          <Button color="instagram" icon="sliders horizontal" onClick={handleFiltersButton} />
+          <Sidebar.Pushable className={visible ? "sidebar-pushable" : ""}>
+            <Sidebar
+              className="sidebar"
+              animation='overlay'
+              icon='labeled'
+              onHide={() => setVisible(false)}
+              vertical
+              visible={visible}
+            >
+              <UserSideBar
+                searchState={searchState}
+                minValueState={minValueState}
+                maxValueState={maxValueState}
+                sortByState={sortByState}
+                categoryState={categoryState}
                 handleChange={handleChange}
                 handleClearSearch={handleClearSearch}
                 handleSubmit={handleSubmit}
-              />
-            </div>
-
-            <div class="sidebar-element">
-              <PriceFilter
-                minValue={minValueState}
-                maxValue={maxValueState}
-                onChange={handleChange}
                 handleClearPrice={handleClearPrice}
-                onSubmit={handleSubmit}
               />
-            </div>
+            </Sidebar>
 
-            <div class="sidebar-select">
-              <ProductSort
-                value={sortByState}
-                onChange={handleChange}
-              />
-            </div>
-
-            <div class="sidebar-select">
-              <CategoryFilter
-                value={categoryState}
-                onChange={handleChange}
-              />
-            </div>
-          </div>
+            <Sidebar.Pusher dimmed={visible}>
+              <div class="index-right">
+                <div>
+                  <ProductList user={user} products={products} />
+                </div>
+                <div>
+                  <PagePagination
+                    pageState={pageState}
+                    totalPages={totalPages}
+                    handlePageSelect={handlePageSelect}
+                  />
+                </div>
+              </div>
+            </Sidebar.Pusher>
+          </Sidebar.Pushable>
         </div>
-
-        <div class="admin-right">
-          <ProductList
-            user={user}
-            products={products}
-          />
-        <div>
-          <PagePagination
-            pageState={pageState}
-            totalPages={totalPages}
-            handlePageSelect={handlePageSelect}
-          />
-          </div>
-        </div>
-      </div>
+      )}
     </div>
   );
 }
+
 
 Home.getInitialProps = async ({ query: { search, minValue, maxValue, sortBy, category, page } }) => {
   const url = `${baseUrl}/api/products_user`;

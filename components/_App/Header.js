@@ -3,7 +3,6 @@ import Link from "next/link";
 import Router, { useRouter } from "next/router";
 import { Image, Icon, Button, Popup, Label } from "semantic-ui-react";
 import { Navbar, Nav } from "react-bootstrap";
-import ProductSearch from "../../components/Index/ProductSearch";
 import CartPopup from "../../components/Cart/CartPopup";
 import NProgress from "nprogress";
 import { handleLogout } from "../../utils/auth"

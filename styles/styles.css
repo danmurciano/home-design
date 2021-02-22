@@ -33,7 +33,25 @@
 .sidebar {
   width: 280px;
   max-width: 100%;
-  margin: 60px auto;
+  margin: 6.4vh auto;
+  /* margin: 60px auto; */
+  background-color: white;
+}
+
+.ui.left.overlay.sidebar {
+  overflow: hidden !important;
+  width: 100%;
+  max-width: 400px;
+}
+
+
+.sidebar-pushable {
+  overflow-y: hidden !important;
+  max-height: 80vh;
+}
+
+.index-right {
+  margin: auto;
 }
 
 
@@ -107,6 +125,10 @@
 .price-filter {
   padding: 0 12px 0 0;
   display: inline-block;
+}
+
+.ui.form .fields>.field {
+  padding-right: 0 !important;
 }
 
 .filter-header {

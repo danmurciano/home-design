@@ -11,7 +11,7 @@ function PriceFilter({ minValue, maxValue, onChange, handleClearPrice, onSubmit 
       <button class="clear-button" onClick={handleClearPrice}> CLEAR </button>
       <label style={{fontSize: "11px"}} class="MuiFormLabel-root"> PRICE </label>
       <Form>
-        <Form.Group>
+        <Form.Group unstackable>
           <Form.Field
             className="price-filter"
             control={Input}
