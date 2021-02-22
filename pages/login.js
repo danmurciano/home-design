@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Form, Icon, Message, Segment, Radio } from "semantic-ui-react";
+import { Button, Form, Icon, Message, Segment, Radio, Checkbox } from "semantic-ui-react";
 import axios from "axios";
 import catchErrors from "../utils/catchErrors";
 import baseUrl from "../utils/baseUrl";
@@ -16,6 +16,7 @@ export default function Signup() {
   const [loading, setLoading] = React.useState(false);
   const [error, setError] = React.useState("");
   const [signIn, setSignIn] = React.useState(true);
+  const [showPassword, setShowPassword] = React.useState(false);
 
 
   React.useEffect(() => {
@@ -23,11 +24,24 @@ export default function Signup() {
     isUser ? setDisabled(false) : setDisabled(true);
   }, [user]);
 
+
   function handleSelect(event) {
     if (signIn === true) {
+      setUser(INITIAL_USER);
+      setShowPassword(false);
       setSignIn(false);
     } else {
+      setUser(INITIAL_USER);
+      setShowPassword(false);
       setSignIn(true);
+    }
+  }
+
+  function handleShowPassword(event) {
+    if (showPassword === true) {
+      setShowPassword(false);
+    } else {
+      setShowPassword(true);
     }
   }
 
@@ -46,7 +60,6 @@ export default function Signup() {
       const payload = { ...user };
       const response = await axios.post(url, payload);
       const { token, tokenAdmin, userRole } = response.data;
-      console.log(response.data);
       handleLogin(token, tokenAdmin, userRole);
     } catch (error) {
       catchErrors(error, setError);
@@ -117,9 +130,15 @@ export default function Signup() {
                 label="Password"
                 placeholder="Password"
                 name="password"
-                type="password"
+                type={showPassword ? "text" : "password"}
                 value={user.password}
                 onChange={handleChange}
+              />
+              <Form.Field
+                control={Checkbox}
+                label='Show Password'
+                checked={showPassword === true}
+                onChange={handleShowPassword}
               />
               <Button
                 disabled={disabled || loading}
@@ -162,9 +181,15 @@ export default function Signup() {
                 label="Password"
                 placeholder="Password"
                 name="password"
-                type="password"
+                type={showPassword ? "text" : "password"}
                 value={user.password}
                 onChange={handleChange}
+              />
+              <Form.Field
+                control={Checkbox}
+                label='Show Password'
+                checked={showPassword === true}
+                onChange={handleShowPassword}
               />
               <Button
                 disabled={disabled || loading}
