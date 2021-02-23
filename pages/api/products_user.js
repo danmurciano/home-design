@@ -1,9 +1,17 @@
 import Product from "../../models/Product";
+import NextCors from 'nextjs-cors';
 import connectDb from "../../utils/connectDb";
+import baseUrl from "../../utils/baseUrl";
 
-connectDb();
+export default async (req, res) {
+   await NextCors(req, res, {
+      methods: ['GET'],
+      origin: baseUrl,
+      optionsSuccessStatus: 200,
+   });
 
-export default async (req, res) => {
+  connectDb();
+
   let { search, minValue, maxValue, sortBy, category, page } = req.query;
 
   if (!search) {
