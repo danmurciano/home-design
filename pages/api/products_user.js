@@ -3,7 +3,7 @@ import NextCors from 'nextjs-cors';
 import connectDb from "../../utils/connectDb";
 import baseUrl from "../../utils/baseUrl";
 
-export default async (req, res) {
+export default async (req, res) => {
    await NextCors(req, res, {
       methods: ['GET'],
       origin: baseUrl,
