@@ -7,7 +7,7 @@ import baseUrl from "../../utils/baseUrl";
 export default async (req, res) => {
   await NextCors(req, res, {
     methods: ['GET'],
-    origin: "https://home-design-danmurciano.vercel.app/",
+    origin: "https://home-design-danmurciano.vercel.app",
     optionsSuccessStatus: 200,
    });
 
