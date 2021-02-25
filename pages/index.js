@@ -14,8 +14,7 @@ import baseUrl from "../utils/baseUrl";
 import catchErrors from "../utils/catchErrors";
 
 
-export default function Home({ user, products, totalPages, ju }) {
-  console.log(ju);
+export default function Home({ user, products, totalPages }) {
   const router = useRouter();
 
   const [productsFiltered, setproductsFiltered] = React.useState(products);

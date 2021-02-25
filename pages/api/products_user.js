@@ -1,35 +1,17 @@
 import Product from "../../models/Product";
-import Cors from 'cors';
 import connectDb from "../../utils/connectDb";
+import NextCors from 'nextjs-cors';
 import baseUrl from "../../utils/baseUrl";
 
 connectDb();
 
-// export default async (req, res) => {
-//    await NextCors(req, res, {
-//       methods: ['GET'],
-//       origin: baseUrl,
-//       optionsSuccessStatus: 200,
-//    });
-
-const cors = Cors({
-  methods: ['GET', 'HEAD'],
-})
-
-function runMiddleware(req, res, fn) {
-  return new Promise((resolve, reject) => {
-    fn(req, res, (result) => {
-      if (result instanceof Error) {
-        return reject(result)
-      }
-
-      return resolve(result)
-    })
-  })
-}
-
 export default async (req, res) => {
-  await runMiddleware(req, res, cors)
+   await NextCors(req, res, {
+      methods: ['GET'],
+      origin: "https://home-design-danmurciano.vercel.app/",
+      optionsSuccessStatus: 200,
+   });
+
 
   let { search, minValue, maxValue, sortBy, category, page } = req.query;
 
@@ -113,8 +95,6 @@ export default async (req, res) => {
     const skips = pageSize * (pageNum - 1);
     products = products.slice(skips, skips + pageSize);;
   };
-
-  const ju = baseUrl;
 
   res.status(200).json({ products, totalPages, ju });
 };
