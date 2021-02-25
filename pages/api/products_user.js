@@ -1,15 +1,15 @@
 import Product from "../../models/Product";
-import NextCors from 'nextjs-cors';
+// import NextCors from 'nextjs-cors';
 import connectDb from "../../utils/connectDb";
 import baseUrl from "../../utils/baseUrl";
 
 
 export default async (req, res) => {
-  await NextCors(req, res, {
-    methods: ['GET'],
-    origin: "https://home-design-danmurciano.vercel.app",
-    optionsSuccessStatus: 200,
-   });
+  // await NextCors(req, res, {
+  //   methods: ['GET'],
+  //   origin: "https://home-design-danmurciano.vercel.app",
+  //   optionsSuccessStatus: 200,
+  //  });
 
 
   connectDb();
