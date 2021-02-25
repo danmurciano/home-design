@@ -1,16 +1,35 @@
 import Product from "../../models/Product";
-import NextCors from 'nextjs-cors';
+import Cors from 'cors';
 import connectDb from "../../utils/connectDb";
 import baseUrl from "../../utils/baseUrl";
 
-export default async (req, res) => {
-   await NextCors(req, res, {
-      methods: ['GET'],
-      origin: baseUrl,
-      optionsSuccessStatus: 200,
-   });
+connectDb();
 
-  connectDb();
+// export default async (req, res) => {
+//    await NextCors(req, res, {
+//       methods: ['GET'],
+//       origin: baseUrl,
+//       optionsSuccessStatus: 200,
+//    });
+
+const cors = Cors({
+  methods: ['GET', 'HEAD'],
+})
+
+function runMiddleware(req, res, fn) {
+  return new Promise((resolve, reject) => {
+    fn(req, res, (result) => {
+      if (result instanceof Error) {
+        return reject(result)
+      }
+
+      return resolve(result)
+    })
+  })
+}
+
+export default async (req, res) => {
+  await runMiddleware(req, res, cors)
 
   let { search, minValue, maxValue, sortBy, category, page } = req.query;
 
@@ -95,5 +114,7 @@ export default async (req, res) => {
     products = products.slice(skips, skips + pageSize);;
   };
 
-  res.status(200).json({ products, totalPages });
+  const ju = baseUrl;
+
+  res.status(200).json({ products, totalPages, ju });
 };
