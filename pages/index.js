@@ -173,7 +173,6 @@ export default function Home({ user, products, totalPages }) {
               className="sidebar"
               animation='overlay'
               icon='labeled'
-              onHide={() => setVisible(false)}
               vertical
               visible={visible}
             >

@@ -21,6 +21,9 @@ a:hover { color: inherit; text-decoration: none !important; }
 * { box-sizing: border-box; }
 
 
+.screen-adjust {
+  min-width: 480px;
+}
 
 .wrapper {
   min-height: calc(100vh - 125px);
@@ -35,9 +38,7 @@ a:hover { color: inherit; text-decoration: none !important; }
 100% { opacity: 1; filter: blur(0); }
 }
 
-/* .container { text-align: center; margin: auto; } */
 
-/* .container-fluid { padding: 0 !important; } */
 
 .page { padding: 30px 0; max-width: 1000px; }
 
@@ -47,4 +48,20 @@ a:hover { color: inherit; text-decoration: none !important; }
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   font-weight: 200;
+}
+
+
+.styled-font-tn {
+  font-family: 'Nunito', Arial, Helvetica, sans-serif;
+  font-weight: 300;
+}
+
+.styled-font-md {
+  font-family: 'Nunito', Arial, Helvetica, sans-serif;
+  font-weight: 400;
+}
+
+.styled-font-bd {
+  font-family: 'Nunito', Arial, Helvetica, sans-serif;
+  font-weight: 700;
 }

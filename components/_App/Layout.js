@@ -12,13 +12,15 @@ function Layout({ children, user, cartProducts }) {
         <title>Home Design</title>
       </Head>
 
-      <div class="wrapper">
-        <Header user={user} cartProducts={cartProducts}/>
-        <Container fluid>
-          {children}
-        </Container>
+      <div class="screen-adjust">
+        <div class="wrapper">
+          <Header user={user} cartProducts={cartProducts}/>
+          <Container fluid>
+            {children}
+          </Container>
+        </div>
+        <Footer />
       </div>
-      <Footer />
     </>
   );
 }

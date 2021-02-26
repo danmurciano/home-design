@@ -30,13 +30,13 @@
 }
 
 .sidebar-element {
-  margin-bottom: calc(12vh - 43px);
-  /* margin-bottom: 70px; */
+  /* margin-bottom: calc(12vh - 43px); */
+  margin-bottom: 70px;
 }
 
 .sidebar-select {
-  margin: calc(14.4vh - 45px) 0;
-  /* margin: 90px 0; */
+  /* margin: calc(14.4vh - 45px) 0; */
+  margin: 90px 0;
 }
 
 .search-bar {
