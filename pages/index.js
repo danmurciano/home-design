@@ -84,8 +84,6 @@ export default function Home({ user, products, totalPages }) {
       case "sortBy":
         sortBy = event.target.value;
         setSortByState(event.target.value);
-        // console.log(screenWidth);
-        // setScreenWidth(screenWidth);
         handleSubmit(event);
         break;
       case "category":
@@ -128,7 +126,6 @@ export default function Home({ user, products, totalPages }) {
     const sortByParam = sortBy !== "" ? `sortBy=${sortBy}&` : "";
     const categoryParam = category !== "" ? `category=${category}&` : "";
     const pageParam = page !== "" ? `page=${page}` : "";
-    setScreenWidth(screenWidth);
     router.push(`/?${searchParam + minValueParam + maxValueParam + sortByParam + categoryParam + pageParam}`);
     setVisible(false);
   }
@@ -150,8 +147,6 @@ export default function Home({ user, products, totalPages }) {
               handleClearSearch={handleClearSearch}
               handleSubmit={handleSubmit}
               handleClearPrice={handleClearPrice}
-              screenWidth={screenWidth}
-              setScreenWidth={setScreenWidth}
             />
           </div>
 
@@ -191,8 +186,6 @@ export default function Home({ user, products, totalPages }) {
                 handleClearSearch={handleClearSearch}
                 handleSubmit={handleSubmit}
                 handleClearPrice={handleClearPrice}
-                screenWidth={screenWidth}
-                setScreenWidth={setScreenWidth}
               />
             </Sidebar>
 

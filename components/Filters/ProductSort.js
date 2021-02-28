@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ProductSort({ value, onChange, screenWidth, setScreenWidth }) {
+export default function ProductSort({ value, onChange }) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 

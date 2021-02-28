@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function CategoryFilter({ value, onChange, screenWidth, setScreenWidth }) {
+export default function CategoryFilter({ value, onChange }) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
