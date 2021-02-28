@@ -41,90 +41,83 @@ export default function Header({ user, cartProducts }) {
 
   return (
     <>
-    <Navbar bg="dark" variant="dark" expand="lg" className="navbar">
+    <Navbar bg="dark" variant="dark" className="navbar">
       <Navbar.Brand href="/" className="navbar-brand"> Home Design </Navbar.Brand>
+      <Nav className="ml-auto" >
+        <div class="col"/>
 
-      <div class="toggle-button-div">
-        <Navbar.Toggle className="toggle-button" aria-controls="basic-navbar-nav"/>
-      </div>
+        {user ? (
+          <>
+            <Popup
+              className="logOutPopup"
+              hoverable
+              flowing
+              position="bottom right"
+              offset={[-30, 0]}
+              content= {
+                <>
+                <p style={{ fontSize: "10px", marginBottom: "0" }}> Signed in as </p>
+                <p class="styled-font-md" style={{ fontSize: "16px", marginTop: "0" }}> { user.name } </p>
+                <Button
+                  color="instagram"
+                  onClick={handleLogout}
+                  content="Sign Out"
+                />
+                </>
+              }
+              trigger= {
+                <Nav.Link href="/account" className="nav-item" >
+                  <Icon name="user" size="large"/>
+                  <p class="navText">Account</p>
+                  <p class="accountNote">{accountMessage()}</p>
+                </Nav.Link>
+              }
+            />
 
-       <Navbar.Collapse className="navbar-sticky row" id="basic-navbar-nav">
-         <Nav className="ml-auto " >
-           <div class="col-lg col-md-12"/>
+            <Popup
+              flowing
+              hoverable
+              position="bottom right"
+              offset={[-30, 0]}
+              content= {
+                <CartPopup
+                  user={user}
+                  products={cartProducts}
+                />
+              }
+              trigger= {
+                <Nav.Link href="/cart" className={isAdmin ? "cart-hide" : "nav-item"} >
+                  <Label className="pseudoLabel" size="tiny" circular>
+                    {cartItems}
+                  </Label>
+                  <Icon name="cart" size="large"/>
+                  <Label className="cartLabel" size="tiny" circular>
+                    {cartItems}
+                  </Label>
+                  <p class="navText">Cart</p>
+                </Nav.Link>
+              }
+            />
+          </>
 
-           {user ? (
-             <>
-               <Popup
-                 className="logOutPopup"
-                 hoverable
-                 flowing
-                 position="bottom right"
-                 offset={[-30, 0]}
-                 content= {
-                   <>
-                   <p style={{ fontSize: "10px", marginBottom: "0" }}> Signed in as </p>
-                   <p class="styled-font-md" style={{ fontSize: "16px", marginTop: "0" }}> { user.name } </p>
-                   <Button
-                     color="instagram"
-                     onClick={handleLogout}
-                     content="Sign Out"
-                   />
-                   </>
-                 }
-                 trigger= {
-                   <Nav.Link href="/account" className="nav-item" >
-                     <Icon name="user" size="large"/>
-                     <p class="navText">Account</p>
-                     <p class="accountNote">{accountMessage()}</p>
-                   </Nav.Link>
-                 }
-               />
+        ) : (
 
-               <Popup
-                 flowing
-                 hoverable
-                 position="bottom right"
-                 offset={[-30, 0]}
-                 content= {
-                   <CartPopup
-                     user={user}
-                     products={cartProducts}
-                   />
-                 }
-                 trigger= {
-                   <Nav.Link href="/cart" className={isAdmin ? "cart-hide" : "nav-item"} >
-                     <Label className="pseudoLabel" size="tiny" circular>
-                       {cartItems}
-                     </Label>
-                     <Icon name="cart" size="large"/>
-                     <Label className="cartLabel" size="tiny" circular>
-                       {cartItems}
-                     </Label>
-                     <p class="navText">Cart</p>
-                   </Nav.Link>
-                 }
-               />
-             </>
+          <>
+            <Nav.Link href="/login" className="nav-item" >
+              <Icon name="user" size="large"/>
+              <p class="navText">Account</p>
+              <p class="accountNote">{accountMessage()}</p>
+            </Nav.Link>
 
-           ) : (
+            <Nav.Link href="/cart" className="cart-hide" >
+              <Icon name="cart" size="large"/>
+              <p class="navText">Cart</p>
+            </Nav.Link>
+          </>
 
-             <>
-               <Nav.Link href="/login" className="nav-item" >
-                 <Icon name="user" size="large"/>
-                 <p class="navText">Account</p>
-                 <p class="accountNote">{accountMessage()}</p>
-               </Nav.Link>
+        )}
 
-               <Nav.Link href="/cart" className="cart-hide" >
-                 <Icon name="cart" size="large"/>
-                 <p class="navText">Cart</p>
-               </Nav.Link>
-             </>
-
-           )}
-
-        </Nav>
-      </Navbar.Collapse>
+      </Nav>
     </Navbar>
     </>
 

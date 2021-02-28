@@ -23,14 +23,17 @@
 .ui.left.overlay.sidebar {
   overflow: hidden !important;
   width: 100%;
-  max-width: 450px;
+  /* max-width: 480px; */
 }
 
+.ui.left.visible.sidebar, .ui.right.visible.sidebar {
+  box-shadow: none !important;
+}
 
 .sidebar-pushable {
   overflow-y: hidden !important;
-  min-height: 540px;
-  height: 70vh;
+  height: 90vh;
+  min-height: 680px;
 }
 
 .index-right {
