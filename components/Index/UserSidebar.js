@@ -5,7 +5,8 @@ import CategoryFilter from "../../components/Filters/CategoryFilter";
 
 
 export default function UserSidebar({ searchState, minValueState, maxValueState, sortByState,
-  categoryState, handleChange, handleClearSearch, handleSubmit, handleClearPrice }) {
+  categoryState, handleChange, handleClearSearch, handleSubmit, handleClearPrice,
+  screenWidth, setScreenWidth }) {
 
 
   return (
@@ -34,6 +35,8 @@ export default function UserSidebar({ searchState, minValueState, maxValueState,
         <ProductSort
           value={sortByState}
           onChange={handleChange}
+          screenWidth={screenWidth}
+          setScreenWidth={setScreenWidth}
         />
       </div>
 
@@ -41,6 +44,8 @@ export default function UserSidebar({ searchState, minValueState, maxValueState,
         <CategoryFilter
           value={categoryState}
           onChange={handleChange}
+          screenWidth={screenWidth}
+          setScreenWidth={setScreenWidth}
         />
       </div>
     </div>

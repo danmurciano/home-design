@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function CategoryFilter({ value, onChange }) {
+export default function CategoryFilter({ value, onChange, screenWidth, setScreenWidth }) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
@@ -26,6 +26,7 @@ export default function CategoryFilter({ value, onChange }) {
       <FormControl >
         <InputLabel id="category-label">CATEGORY</InputLabel>
         <Select
+          native
           labelId="category-filter-label"
           id="category-filter"
           open={open}
