@@ -26,7 +26,6 @@ export default function CategoryFilter({ value, onChange }) {
       <FormControl >
         <InputLabel id="category-label">CATEGORY</InputLabel>
         <Select
-          native
           labelId="category-filter-label"
           id="category-filter"
           open={open}

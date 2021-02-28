@@ -26,7 +26,6 @@ function ProductSort({ value, onChange }) {
       <FormControl >
         <InputLabel id="include-label">INCLUDE</InputLabel>
         <Select
-          native
           labelId="status-filter-label"
           id="status-filter"
           open={open}

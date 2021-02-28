@@ -26,7 +26,6 @@ export default function ProductSort({ value, onChange }) {
       <FormControl >
         <InputLabel id="sort-by-label">SORT BY</InputLabel>
         <Select
-          native
           labelId="sort-by-label"
           id="sort-by"
           open={open}
