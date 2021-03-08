@@ -69,7 +69,6 @@ export default function Home({ user, products, totalPages }) {
   }
 
 
-
   function handleChange(event) {
     switch (event.target.name) {
       case "search":
