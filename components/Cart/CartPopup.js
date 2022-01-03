@@ -78,6 +78,7 @@ export default function CartPopup({ user, products, handleRemoveFromCart }) {
 
       <div class="cartPopup-button">
         <Button
+          circular
           color="instagram"
           onClick={handleViewCart}
           content="View Cart"

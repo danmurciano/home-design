@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { InputLabel, MenuItem, FormControl, Select, Button } from '@material-ui/core';
+import { InputLabel, MenuItem, FormControl, Select } from '@material-ui/core';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -25,22 +25,26 @@ export default function ProductSort({ value, onChange }) {
     <div>
       <FormControl >
         <InputLabel id="sort-by-label">SORT BY</InputLabel>
-        <Select
-          native
-          labelId="sort-by-label"
-          id="sort-by"
-          open={open}
-          onClose={handleClose}
-          onOpen={handleOpen}
-          name="sortBy"
-          value={value}
-          onChange={onChange}
-          menuProps
-        >
-          <option value={0}>DEFAULT</option>
-          <option value={1}>PRICE - LOW TO HIGH</option>
-          <option value={2}>PRICE - HIGH TO LOW</option>
-        </Select>
+        <div class="filter-div">
+          <Select
+            className="filter-input"
+            disableUnderline
+            native
+            labelId="sort-by-label"
+            id="sort-by"
+            open={open}
+            onClose={handleClose}
+            onOpen={handleOpen}
+            name="sortBy"
+            value={value}
+            onChange={onChange}
+            menuProps
+          >
+            <option value={0}>DEFAULT</option>
+            <option value={1}>PRICE - LOW TO HIGH</option>
+            <option value={2}>PRICE - HIGH TO LOW</option>
+          </Select>
+        </div>
       </FormControl>
     </div>
   );

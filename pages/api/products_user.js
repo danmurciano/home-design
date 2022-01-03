@@ -5,19 +5,25 @@ import baseUrl from "../../utils/baseUrl";
 connectDb();
 
 export default async (req, res) => {
-  
+
   let { search, minValue, maxValue, sortBy, category, page } = req.query;
+  let minValueAdjust;
+  let maxValueAdjust;
 
   if (!search) {
     search = "";
   }
 
   if (!minValue) {
-    minValue = 0;
+    minValueAdjust = 0;
+  } else {
+    minValueAdjust = minValue;
   }
 
   if (!maxValue) {
-    maxValue = 100000;
+    maxValueAdjust = 100000;
+  } else {
+    maxValueAdjust = maxValue;
   }
 
   if (!sortBy) {
@@ -72,7 +78,7 @@ export default async (req, res) => {
   let products = [];
   products = await Product.find({
     $or: [ {name: { $regex: regExp}}, {shortDesc: { $regex: regExp}} ],
-    price: { $gte: minValue , $lte: maxValue },
+    price: { $gte: minValueAdjust , $lte: maxValueAdjust },
     status: { $not: { $in: "Discontinued" } },
     category: { $in: categoryInclude }
   }).sort( sortMethod );
@@ -89,5 +95,5 @@ export default async (req, res) => {
     products = products.slice(skips, skips + pageSize);;
   };
 
-  res.status(200).json({ products, totalPages });
+  res.status(200).json({ products, totalPages, search, minValue, maxValue, sortBy, category, page });
 };

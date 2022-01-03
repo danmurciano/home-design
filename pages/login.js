@@ -88,8 +88,6 @@ export default function Signup() {
 
   return (
     <div class="container-fluid pageSignIn">
-      <div class="signInHeader"> My Account </div>
-
       <div class="signInBox">
         <Form>
           <Form.Field className="signInSelect"
@@ -108,100 +106,68 @@ export default function Signup() {
           />
         </Form>
 
-        {signIn ? (
-
-          <Form error={Boolean(error)} loading={loading} onSubmit={handleSignIn}>
-            <Message error header="Oops!" content={error} />
+        <Form error={Boolean(error)} loading={loading} onSubmit={signIn ? handleSignIn : handleSignUp}>
+          <Message error header="Oops!" content={error} />
+          {!signIn ? (
+            <div class="signIn-field ">
               <Form.Input
-                className="signInInput"
-                icon="envelope"
-                iconPosition="left"
-                label="Email"
-                placeholder="Email"
-                name="email"
-                type="email"
-                value={user.email}
-                onChange={handleChange}
-              />
-              <Form.Input
-                className="signInInput"
-                icon="lock"
-                iconPosition="left"
-                label="Password"
-                placeholder="Password"
-                name="password"
-                type={showPassword ? "text" : "password"}
-                value={user.password}
-                onChange={handleChange}
-              />
-              <Form.Field
-                control={Checkbox}
-                label='Show Password'
-                checked={showPassword === true}
-                onChange={handleShowPassword}
-              />
-              <Button
-                disabled={disabled || loading}
-                type="submit"
-                color="red"
-                content="Sign In"
-                size="big"
-              />
-          </Form>
-
-        ) : (
-
-          <Form error={Boolean(error)} loading={loading} onSubmit={handleSignUp}>
-            <Message error header="Oops!" content={error} />
-              <Form.Input
-                className="signInInput"
+                transparent
+                className="top-searchbar-input"
                 icon="user"
                 iconPosition="left"
-                label="Name"
                 placeholder="Name"
                 name="name"
                 value={user.name}
                 onChange={handleChange}
               />
+            </div>
+          ) : (
+            <> </>
+          )}
+
+           <div class="signIn-field ">
+             <Form.Input
+               transparent
+               className="top-searchbar-input"
+               icon="envelope"
+               iconPosition="left"
+               placeholder="Email"
+               name="email"
+               type="email"
+               value={user.email}
+               onChange={handleChange}
+             />
+            </div>
+            <div class="signIn-field ">
               <Form.Input
-                className="signInInput"
-                icon="envelope"
-                iconPosition="left"
-                label="Email"
-                placeholder="Email"
-                name="email"
-                type="email"
-                value={user.email}
-                onChange={handleChange}
-              />
-              <Form.Input
-                className="signInInput"
+                transparent
+                className="top-searchbar-input"
                 icon="lock"
                 iconPosition="left"
-                label="Password"
                 placeholder="Password"
                 name="password"
                 type={showPassword ? "text" : "password"}
                 value={user.password}
                 onChange={handleChange}
               />
-              <Form.Field
-                control={Checkbox}
-                label='Show Password'
-                checked={showPassword === true}
-                onChange={handleShowPassword}
-              />
-              <Button
-                disabled={disabled || loading}
-                type="submit"
-                color="red"
-                content="Signup"
-                size="big"
-              />
-          </Form>
-
-        )}
-
+            </div>
+            <Form.Field
+              control={Checkbox}
+              label='Show Password'
+              checked={showPassword === true}
+              onChange={handleShowPassword}
+            />
+            <Button
+              circular
+              fluid
+              className="login-button"
+              disabled={disabled || loading}
+              type="submit"
+              color="instagram"
+              content={signIn ? "Sign In" : "Signup"}
+              size="big"
+            />
+        </Form>
       </div>
     </div>
   );

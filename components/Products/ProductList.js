@@ -21,6 +21,11 @@ export default function ProductList({ user, products }) {
     }
   }
 
+  let isTouchDevice;
+  if (typeof window !== "undefined") {
+    isTouchDevice = window.matchMedia("(pointer: coarse)").matches;
+  };
+
 
   async function handleAddProductToCart(productId, productPrice) {
     try {
@@ -44,24 +49,26 @@ export default function ProductList({ user, products }) {
         onMouseEnter={() => setHover(product._id)}
         onMouseLeave={() => setHover("none")}
       >
-        <a class="productLink" href={`/products/product?_id=${product._id}`}>
-          <img src={product.mediaUrl} class="card-img-top indexProductImage" alt="..."/>
-          <div class="card-body">
-            <h5 class="card-name styled-font-md">{product.name}</h5>
-            <p class="card-desc styled-font-tn">{product.shortDesc}</p>
-            <p class="card-price styled-font-md">{`$${(product.price).toFixed(2)}`}</p>
-          </div>
-        </a>
-        {customer ? (
-          <Button circular size="small" color="instagram" icon="cart"
-            className={hover !== product._id ? "add-to-cart-hidden" : "add-to-cart"}
-            onClick={() => handleAddProductToCart(product._id, product.price)}
-          >
-            <Icon name="cart" /> Add to Cart
-          </Button>
-        ) : (
-          <> </>
-        )}
+        <div class="card-content">
+          <a class="productLink" href={`/products/product?_id=${product._id}`}>
+            <img src={product.mediaUrl} class="card-img-top indexProductImage" alt="..."/>
+            <div class="card-body">
+              <h5 class="card-name styled-font-md">{product.name}</h5>
+              <p class="card-desc styled-font-tn">{product.shortDesc}</p>
+              <p class="card-price styled-font-md">{`$${(product.price).toFixed(2)}`}</p>
+            </div>
+          </a>
+          {customer ? (
+            <Button circular size="small" color="instagram" icon="cart"
+              className={hover === product._id || isTouchDevice ? "add-to-cart" : "add-to-cart-hidden"}
+              onClick={() => handleAddProductToCart(product._id, product.price)}
+            >
+              <Icon name="cart" /> Add to Cart
+            </Button>
+          ) : (
+            <> </>
+          )}
+        </div>
       </div>
     ));
   }

@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function ProductSort({ value, onChange }) {
+export default function OrderSort({ value, onChange }) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
@@ -25,27 +25,29 @@ function ProductSort({ value, onChange }) {
     <div>
       <FormControl >
         <InputLabel id="include-label">INCLUDE</InputLabel>
-        <Select
-          native
-          labelId="status-filter-label"
-          id="status-filter"
-          open={open}
-          onClose={handleClose}
-          onOpen={handleOpen}
-          name="statusFilter"
-          value={value}
-          onChange={onChange}
-          menuProps
-        >
-          <option value={0}>All</option>
-          <option value={1}>BEING PROCESSED</option>
-          <option value={2}>IN TRANSIT</option>
-          <option value={3}>DELIVERED</option>
-          <option value={4}>CANCELED</option>
-        </Select>
+        <div class="filter-div">
+          <Select
+            className="filter-input"
+            disableUnderline
+            native
+            labelId="status-filter-label"
+            id="status-filter"
+            open={open}
+            onClose={handleClose}
+            onOpen={handleOpen}
+            name="statusFilter"
+            value={value}
+            onChange={onChange}
+            menuProps
+          >
+            <option value={0}>All</option>
+            <option value={1}>BEING PROCESSED</option>
+            <option value={2}>IN TRANSIT</option>
+            <option value={3}>DELIVERED</option>
+            <option value={4}>CANCELED</option>
+          </Select>
+        </div>
       </FormControl>
     </div>
   );
 }
-
-export default ProductSort;

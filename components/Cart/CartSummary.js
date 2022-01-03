@@ -39,10 +39,11 @@ export default function CartSummary({ products, handleCheckout, success }) {
             triggerEvent="onClick"
           >
             <Button
+              circular
               className="checkout-button"
               icon="cart"
               disabled={success}
-              color="red"
+              color="instagram"
               floated="right"
               content="Checkout"
               size="big"

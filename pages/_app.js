@@ -11,7 +11,7 @@ import "../styles/nprogress.css"
 import '../styles/globals.css';
 import '../styles/styles.css';
 import '../styles/styles-admin.css';
-import '../styles/styles-navbar.css';
+import '../styles/styles-header.css';
 import '../styles/styles-product.css';
 import '../styles/styles-cart.css';
 import '../styles/styles-account.css';
@@ -85,6 +85,7 @@ class MyApp extends App {
 
     return { pageProps };
   }
+
 
 
   componentDidMount() {

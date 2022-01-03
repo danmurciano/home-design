@@ -1,0 +1,140 @@
+.navbar {
+  background: white !important;
+  text-align: center;
+  padding: 0 !important;
+  margin: auto 15px !important;
+  border-bottom: 1px solid #dbdbdb;
+}
+
+.toggle-button-div {
+  width: 100px;
+  padding: 22px;
+}
+
+.toggle-button {
+  margin:16px !important;
+}
+
+.show {
+  padding-bottom: 20px;
+}
+
+
+.navbar-brand {
+  text-align: left;
+  padding: 0;
+  padding-left: 1.25%;
+  margin-right: 0 !important;
+  margin-bottom: 8px;
+  width: calc(25% - 138px);
+  min-width: 140px;
+}
+
+.logo {
+  width: 160px;
+  height: auto;
+  max-width: 100%;
+}
+
+.logo:hover {
+  filter: brightness(0.8);
+}
+
+.search-div {
+  vertical-align: middle;
+  margin: auto calc(6% - 19px);
+  padding: 26px 0;
+}
+
+.top-searchbar {
+  border-radius: 24px !important;
+  padding: 10px calc(13px + 0.6%);
+  background-color: #f0f0f0;
+  margin: auto;
+  overflow: hidden;
+}
+
+.top-searchbar-input {
+  display: inline-block;
+  margin: auto !important;
+  width: calc(100% - 60px) !important;
+}
+
+.top-searchbar-button {
+  display: inline-block;
+  background-color: inherit !important;
+  text-align: right !important;
+  width: 26px;
+  padding: 4px !important;
+}
+
+.top-searchbar-hidden-button {
+  visibility: hidden;
+  display: inline-block;
+  text-align: right !important;
+  width: 26px;
+  padding: 4px !important;
+}
+
+
+.ml-auto {
+  margin-right: 0;
+  padding: 0 !important;
+  overflow: hidden;
+}
+
+.nav-item {
+  font-size: 12px;
+  margin: 10px 4px 0;
+  min-width: 60px;
+}
+
+.nav-icon {
+  margin: auto !important;
+}
+
+.nav-icon-edit {
+  margin: auto !important;
+  margin-left: 4px !important;
+  margin-top: -2px !important;
+}
+
+.nav-text {
+  margin: 0;
+  padding: 2px 0 0;
+  font-size: 10px;
+}
+
+
+.logOutPopup {
+  text-align: center;
+  padding: 16px 32px !important;
+}
+
+.nav-icon-cart {
+  margin: auto !important;
+  position: relative;
+  left: 10px;
+}
+
+.cartLabel {
+  background-color: #ff9e9e !important;
+  color: black !important;
+  font-size: 10px !important;
+  position: relative;
+  left: 8px;
+}
+
+.cart-text {
+  margin: 0;
+  padding: 2px 2px 0;
+  font-size: 10px;
+}
+
+.cart-hide {
+  visibility: hidden;
+  overflow: hidden;
+  height: 0;
+  width: 0;
+  padding: 0 !important;
+}

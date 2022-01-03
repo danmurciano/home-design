@@ -56,6 +56,7 @@ export default function Product({ product, user }) {
 
           <div class="product-section">
             <Button
+              circular
               className="product-page-button"
               color="instagram"
               icon="edit"

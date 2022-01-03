@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { InputLabel, MenuItem, FormControl, Select, Button } from '@material-ui/core';
+import { InputLabel, MenuItem, FormControl, Select } from '@material-ui/core';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function ProductSort({ value, onChange }) {
+export default function ProductSort({ value, onChange }) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
@@ -25,27 +25,29 @@ function ProductSort({ value, onChange }) {
     <div>
       <FormControl >
         <InputLabel id="include-label">INCLUDE</InputLabel>
-        <Select
-          native
-          labelId="status-filter-label"
-          id="status-filter"
-          open={open}
-          onClose={handleClose}
-          onOpen={handleOpen}
-          name="statusFilter"
-          value={value}
-          onChange={onChange}
-          menuProps
-        >
-          <option value={0}>DEFAULT</option>
-          <option value={1}>IN STOCK</option>
-          <option value={2}>OUT OF STOCK</option>
-          <option value={3}>DISCONTINUED</option>
-          <option value={4}>ALL</option>
-        </Select>
+        <div class="filter-div">
+          <Select
+            className="filter-input"
+            disableUnderline
+            native
+            labelId="status-filter-label"
+            id="status-filter"
+            open={open}
+            onClose={handleClose}
+            onOpen={handleOpen}
+            name="statusFilter"
+            value={value}
+            onChange={onChange}
+            menuProps
+          >
+            <option value={0}>DEFAULT</option>
+            <option value={1}>IN STOCK</option>
+            <option value={2}>OUT OF STOCK</option>
+            <option value={3}>DISCONTINUED</option>
+            <option value={4}>ALL</option>
+          </Select>
+        </div>
       </FormControl>
     </div>
   );
 }
-
-export default ProductSort;

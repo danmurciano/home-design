@@ -3,14 +3,65 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Mallanna");
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Allura&display=swap');
 
 
-
-/* Index Page */
+/* Main Page */
 
 .pageMain {
-  padding: 30px 0px;
-  max-width: 1860px;
+  padding: 70px 0px;
+}
+
+.home-image {
+  margin: 50px auto 150px auto !important;
+  height: 680px;
+}
+
+.home-image-left {
+  text-align: center !important;
+  background-image: url("/images/banner.jpg");
+  background-size: cover;
+  background-position: 50% 50%;
+  min-height: 86%;
+}
+
+.home-image-right {
+  background-color: #334e5e;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  padding: 50px 0;
+}
+
+
+.pageMain h1 {
+  font-size: 36px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 500;
+}
+
+.pageMain h2 {
+  color: white;
+  font-size: 48px;
+  font-family: 'Lato', cursive;
+  font-weight: 100;
+  text-align: center;
+  margin: auto;
+}
+
+
+/* Products Page */
+
+.page-products {
+  padding: 0;
+}
+
+.page-products h1 {
+  font-size: 32px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 500;
+  margin-top: 50px;
 }
 
 .sidebar {
@@ -23,7 +74,6 @@
 .ui.left.overlay.sidebar {
   overflow: hidden !important;
   width: 100%;
-  /* max-width: 480px; */
 }
 
 .ui.left.visible.sidebar, .ui.right.visible.sidebar {
@@ -32,9 +82,9 @@
 
 .sidebar-pushable {
   overflow-y: hidden !important;
-  height: 90vh;
-  min-height: 680px;
+  height: calc(1324px - 70vw) !important;
 }
+
 
 .index-right {
   margin: auto;
@@ -47,8 +97,6 @@
 
 .productCard {
   border: none;
-  padding: 36px 48px 48px !important;
-  text-align: center;
 }
 
 .productCard:hover {
@@ -56,6 +104,10 @@
   transition: 0.25s;
 }
 
+.card-content {
+  padding: 36px 16% 48px !important;
+  text-align: center;
+}
 
 .card-body {
   text-align: center;
@@ -109,9 +161,68 @@
 
 /* Filters */
 
+.filters-div {
+  padding: 40px 0 !important;
+  margin-bottom: 60px !important;
+  border-bottom: 1px solid #dbdbdb;
+}
+
+.filters-row {
+  max-width: 840px;
+  margin: 0 !important;
+  padding: 0 !important;
+
+}
+
+.filter {
+  width: 260px;
+  margin: auto;
+  padding: 0;
+}
+
+.filter-div {
+  margin-top: 20px;
+  padding-right: 0 !important;
+}
+
+.filter-input {
+  border-radius: 32px !important;
+  background-color: #f0f0f0;
+  overflow: hidden;
+  padding: 6px 0 6px 12px;
+  width: 100%;
+}
+
+.price-input {
+  border-radius: 32px !important;
+  background-color: #f0f0f0;
+  overflow: hidden;
+  padding: 6px 0 6px 12px;
+  margin-right: 3%;
+  width: 36%;
+}
+
+
+.MuiSelect-select:focus {
+  background-color: inherit !important
+}
+
 .price-filter {
   padding: 0 12px 0 0;
   display: inline-block;
+  border-radius: 12px !important;
+  flex-wrap: wrap;
+}
+
+.price-filter-button {
+  width: 20% !important;
+  padding: 0 !important;
+}
+
+
+.ui.form .ui.form.input .ui.input .six.wide.field .ui.form .fields>.field:first-child {
+  border-radius: 12px !important;
+  background-color: grey !important;
 }
 
 .ui.form .fields>.field {
@@ -126,37 +237,54 @@
   color: rgba(0, 0, 0, 0.6);
 }
 
+.MuiFormLabel-root {
+  vertical-align: top !important;
+}
+
 
 
 /* Login */
 
 .pageSignIn {
-  padding: 30px 0 !important;
+  padding: 100px 0 !important;
   max-width: 800px;
 }
 
 .signInBox {
-  border: 1px solid #e0e0e0;
-  padding: 32px 16px;
-}
-
-.signInHeader {
-  background: var(--menuBgAlt);
-  font-size: 20px;
-  color: white;
-  padding: 12px;
+  margin: 20px auto;
+  padding: 0 0 0 12px;
+  width: 400px;
 }
 
 .signInSelect {
   display: inline-block;
-  padding: 0 40px 10px 0;
-  font-weight: bold;
+  padding: 0 40px 0 0;
 }
 
-.signInInput {
-  max-width: 400px;
+.signIn-field {
+  border: 1px solid #d9d9d9;
+  border-radius: 24px !important;
+  padding: 10px calc(13px + 0.6%);
+  background-color: white;
+  margin: 24px auto;
+  overflow: hidden;
+  position: relative;
+  right: 12px;
 }
 
+.ui.form .field>label {
+  font-weight: 400 !important;
+}
+
+.login-button {
+  margin-top: 24px !important;
+  position: relative;
+  right: 12px;
+}
+
+.ui.button:disabled {
+  opacity: 0.75 !important;
+}
 
 
 /* Footer */

@@ -57,7 +57,7 @@ export default function AddProductToCart({ user, productId, productPrice }) {
           disabled: true
         } :
           user ? {
-          color: "red",
+          color: "instagram",
           content: "Add to Cart",
           icon: "cart",
           loading,

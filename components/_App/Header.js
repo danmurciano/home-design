@@ -11,6 +11,8 @@ import baseUrl from "../../utils/baseUrl";
 import cookie from "js-cookie";
 import { parseCookies } from "nookies";
 import { calculateCartItems } from "../../utils/calculateCartTotal";
+import TopSearchBar from "./TopSearchBar";
+
 
 Router.onRouteChangeStart = () => NProgress.start();
 Router.onRouteChangeComplete = () => {
@@ -22,17 +24,15 @@ Router.onRouteChangeError = () => NProgress.done();
 
 export default function Header({ user, cartProducts }) {
   const router = useRouter();
-  const isRoot = user && user.role === "root";
   const isAdmin = user && user.role === "admin";
-  const isRootOrAdmin = isRoot || isAdmin;
   const cartItems = calculateCartItems(cartProducts);
 
 
   function accountMessage() {
-    let firstName
+    let firstName;
     if (user) {
       firstName = user.name.split(' ').slice(0, 1);
-      return `Hello, ${firstName}`;
+      return `Hi, ${firstName}`;
     } else {
       return "Sign In";
     }
@@ -41,10 +41,31 @@ export default function Header({ user, cartProducts }) {
 
   return (
     <>
-    <Navbar bg="dark" variant="dark" className="navbar">
-      <Navbar.Brand href="/" className="navbar-brand"> Home Design </Navbar.Brand>
+    <Navbar collapseOnSelect expand="md" bg="light" variant="light" className="navbar">
+      <div className="navbar-brand">
+        <a href="/"> <img class="logo" src="/images/logo.png"/> </a>
+      </div>
+
+      <Navbar.Toggle aria-controls="responsive-navbar-nav" className="toggle-button"/>
+      <Navbar.Collapse id="responsive-navbar-nav" className="navbar-collapse">
+
+      <div class="col">
+        <div class="search-div">
+          <TopSearchBar/>
+        </div>
+      </div>
+
       <Nav className="ml-auto" >
-        <div class="col"/>
+
+        <Nav.Link href="/admin/products" className={isAdmin ? "nav-item" : "cart-hide"} >
+          <Icon size="large" name="edit" className="nav-icon-edit"/>
+          <p class="nav-text">Edit</p>
+        </Nav.Link>
+
+        <Nav.Link href="/products" className="nav-item">
+          <Icon size="large" name="list layout" className="nav-icon"/>
+          <p class="nav-text">Products</p>
+        </Nav.Link>
 
         {user ? (
           <>
@@ -59,6 +80,7 @@ export default function Header({ user, cartProducts }) {
                 <p style={{ fontSize: "10px", marginBottom: "0" }}> Signed in as </p>
                 <p class="styled-font-md" style={{ fontSize: "16px", marginTop: "0" }}> { user.name } </p>
                 <Button
+                  circular
                   color="instagram"
                   onClick={handleLogout}
                   content="Sign Out"
@@ -67,9 +89,8 @@ export default function Header({ user, cartProducts }) {
               }
               trigger= {
                 <Nav.Link href="/account" className="nav-item" >
-                  <Icon name="user" size="large"/>
-                  <p class="navText">Account</p>
-                  <p class="accountNote">{accountMessage()}</p>
+                  <Icon name="user circle" size="large" className="nav-icon"/>
+                  <p class="nav-text">{accountMessage()}</p>
                 </Nav.Link>
               }
             />
@@ -87,14 +108,11 @@ export default function Header({ user, cartProducts }) {
               }
               trigger= {
                 <Nav.Link href="/cart" className={isAdmin ? "cart-hide" : "nav-item"} >
-                  <Label className="pseudoLabel" size="tiny" circular>
-                    {cartItems}
-                  </Label>
-                  <Icon name="cart" size="large"/>
+                  <Icon name="cart" size="large" className="nav-icon-cart"/>
                   <Label className="cartLabel" size="tiny" circular>
                     {cartItems}
                   </Label>
-                  <p class="navText">Cart</p>
+                  <p class="cart-text">Cart</p>
                 </Nav.Link>
               }
             />
@@ -104,20 +122,14 @@ export default function Header({ user, cartProducts }) {
 
           <>
             <Nav.Link href="/login" className="nav-item" >
-              <Icon name="user" size="large"/>
-              <p class="navText">Account</p>
-              <p class="accountNote">{accountMessage()}</p>
-            </Nav.Link>
-
-            <Nav.Link href="/cart" className="cart-hide" >
-              <Icon name="cart" size="large"/>
-              <p class="navText">Cart</p>
+              <Icon name="user circle" size="large" className="nav-icon"/>
+              <p class="nav-text">{accountMessage()}</p>
             </Nav.Link>
           </>
-
         )}
 
       </Nav>
+      </Navbar.Collapse>
     </Navbar>
     </>
 

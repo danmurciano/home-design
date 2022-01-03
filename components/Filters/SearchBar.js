@@ -10,7 +10,7 @@ function SearchBar({ label, value, handleChange, handleClearSearch, handleSubmit
     <>
       <button class="clear-button" onClick={handleClearSearch}> CLEAR </button>
       <label style={{fontSize: "11px"}} class="MuiFormLabel-root"> {label} </label>
-      <div class="search-bar">
+      <div class="filter-input top-searchbar">
         <Form>
           <Form.Input
             transparent
@@ -23,7 +23,7 @@ function SearchBar({ label, value, handleChange, handleClearSearch, handleSubmit
           />
           <Button
             size="small"
-            className="searchBarButton"
+            className="top-searchbar-button"
             type="submit"
             icon="search"
             onClick={handleSubmit}

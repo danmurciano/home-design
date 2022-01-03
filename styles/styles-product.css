@@ -1,12 +1,11 @@
 
 .page-product {
   padding: 0 !important;
-  max-width: 1400px;
 }
 
 .breadcrumb-div {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 6px 0;
+  padding: 6px 1.4vw;
 }
 
 .breadcrumb {

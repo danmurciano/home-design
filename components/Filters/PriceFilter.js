@@ -1,50 +1,68 @@
-import React from "react";
-import { Header, Form, Input, TextArea, Button, Icon } from "semantic-ui-react";
-import axios from "axios";
-import baseUrl from "../../utils/baseUrl";
-import catchErrors from "../../utils/catchErrors";
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import { InputLabel, MenuItem, FormControl, FormGroup, TextField, Input } from '@material-ui/core';
+import { Button } from "semantic-ui-react";
 
-function PriceFilter({ minValue, maxValue, onChange, handleClearPrice, onSubmit }) {
+
+const useStyles = makeStyles((theme) => ({
+  button: {
+    display: 'block',
+    marginTop: theme.spacing(2),
+  },
+  formControl: {
+    margin: theme.spacing(1),
+    minWidth: 120,
+  },
+}));
+
+export default function PriceFilter({ minValue, maxValue, onChange, handleClearPrice, onSubmit }) {
+  const classes = useStyles();
 
   return (
-    <>
-      <button class="clear-button" onClick={handleClearPrice}> CLEAR </button>
-      <label style={{fontSize: "11px"}} class="MuiFormLabel-root"> PRICE </label>
-      <Form>
-        <Form.Group unstackable>
-          <Form.Field
-            className="price-filter"
-            control={Input}
+    <div>
+      <div>
+        <button class="clear-button" onClick={handleClearPrice}> CLEAR </button>
+        <label style={{fontSize: "11px"}} class="MuiFormLabel-root"> PRICE </label>
+      </div>
+      <FormGroup>
+        <div class="filter-div row">
+          <Input
+            className="price-input"
+            disableUnderline
+            labelId="sort-by-label"
+            id="minValue"
+            type="number"
             name="minPrice"
-            placeholder='min'
+            placeholder="min"
             value={minValue}
-            width="6"
-            type="number"
-            min="0"
+            min={0}
+            startegy="ignore"
             onChange={onChange}
-          />
-          <Form.Field
-            className="price-filter"
-            control={Input}
+            inputProps
+          >
+          </Input>
+          <Input
+            className="price-input"
+            disableUnderline
+            labelId="sort-by-label"
+            id="maxValue"
+            type="number"
             name="maxPrice"
-            placeholder='max'
+            placeholder="max"
             value={maxValue}
-            width="6"
-            type="number"
-            min="0"
             onChange={onChange}
+            inputProps
+          >
+          </Input>
+          <Button
+            className="price-filter-button"
+            circular
+            color="instagram"
+            content="Go"
+            onClick={onSubmit}
           />
-          <Form.Field>
-            <Button
-              color="instagram"
-              content="Go"
-              onClick={onSubmit}
-            />
-          </Form.Field>
-        </Form.Group>
-      </Form>
-    </>
+        </div>
+      </FormGroup>
+    </div>
   );
 }
-
-export default PriceFilter;

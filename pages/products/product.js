@@ -8,7 +8,7 @@ import baseUrl from "../../utils/baseUrl";
 export default function Product({ product, user }) {
 
   const sections = [
-    { key: 'Products', content: 'Products', href: "/" },
+    { key: 'Products', content: 'Products', href: "/products" },
     { key: 'Product', content: `${product.name}` },
   ]
 

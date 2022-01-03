@@ -123,7 +123,6 @@ export default function Products({ products, totalPages }) {
         params: { search, minValue, maxValue, statusFilter, category, sortBy, ascending, page },
         headers: { Authorization: tokenAdmin }
       }
-      console.log(payload);
       const response = await axios.get(url, payload);
       setproductsFiltered(response.data.products);
       setTotalPagesState(response.data.totalPages);
@@ -181,6 +180,7 @@ export default function Products({ products, totalPages }) {
 
             <div class="new-product-button">
               <Button
+                circular
                 size="large"
                 color="instagram"
                 icon="plus"
