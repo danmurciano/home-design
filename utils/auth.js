@@ -7,7 +7,7 @@ export function handleLogin(token, tokenAdmin, userRole) {
     cookie.set("tokenAdmin", tokenAdmin);
     Router.push("/admin/products");
   } else {
-    Router.push("/account");
+    Router.push("/");
   }
 }
 

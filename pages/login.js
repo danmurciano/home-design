@@ -88,7 +88,7 @@ export default function Signup() {
 
   return (
     <div class="container-fluid pageSignIn">
-      <div class="signInBox">
+      <div class={loading ? "signInBox-loading" : "signInBox"} >
         <Form>
           <Form.Field className="signInSelect"
             control={Radio}
@@ -106,7 +106,7 @@ export default function Signup() {
           />
         </Form>
 
-        <Form error={Boolean(error)} loading={loading} onSubmit={signIn ? handleSignIn : handleSignUp}>
+        <Form error={Boolean(error)} onSubmit={signIn ? handleSignIn : handleSignUp}>
           <Message error header="Oops!" content={error} />
           {!signIn ? (
             <div class="signIn-field ">
@@ -152,6 +152,7 @@ export default function Signup() {
               />
             </div>
             <Form.Field
+              className="show-password"
               control={Checkbox}
               label='Show Password'
               checked={showPassword === true}

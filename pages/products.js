@@ -106,7 +106,7 @@ export default function Products({ user, products, totalPages, search, minValue,
       <h1> {search ? `Showing results for "${search}"` : "Products"} </h1>
 
       {screenWidth >= 992 ? (
-        <div class="">
+        <div>
           <div class="filters-div">
             <FiltersBar
               minValueState={minValueState}
@@ -136,7 +136,7 @@ export default function Products({ user, products, totalPages, search, minValue,
       ) : (
 
         <div>
-          <Button color="instagram" icon="sliders horizontal" onClick={handleFiltersButton} />
+          <Button className="filters-button" icon="sliders horizontal" size="tiny" content="Filters" onClick={handleFiltersButton} />
           <Sidebar.Pushable className={visible ? "sidebar-pushable" : ""}>
             <Sidebar
               className="sidebar"

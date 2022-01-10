@@ -1,5 +1,8 @@
 import connectDb from "../../utils/connectDb";
 import User from "../../models/User";
+import Product from "../../models/Product";
+import Cart from "../../models/Cart";
+import Order from "../../models/Order";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
@@ -19,7 +22,7 @@ export default async (req, res) => {
     // 3) check to see if users' password matches the one in db
     const passwordsMatch = await bcrypt.compare(password, user.password);
 
-    // 4) --if so, generate a token
+    // 4) --if so, generate a token. If admin, also generate admin token.
     if (passwordsMatch) {
       const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: "30d" });
       let tokenAdmin;

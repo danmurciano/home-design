@@ -30,7 +30,7 @@ class MyApp extends App {
     } else if (ctx.pathname.startsWith("/admin")) {
       route = "admin";
     } else {
-      route = "general";
+      route = "guest";
     }
 
     if (!token) {
@@ -41,7 +41,7 @@ class MyApp extends App {
         case "admin":
         redirectUser(ctx, "/login");
         break;
-        case "general":
+        case "guest":
         if (Component.getInitialProps) {
           pageProps = await Component.getInitialProps(ctx);
         }
@@ -94,7 +94,6 @@ class MyApp extends App {
 
   syncLogout = event => {
     if (event.key === "logout") {
-      console.log("Logged out from storage");
       Router.push('/login')
     }
   }
