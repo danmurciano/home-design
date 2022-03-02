@@ -38,7 +38,7 @@ export default function CartPopup({ user, products, handleRemoveFromCart }) {
     return products.map(p => (
       <tr>
         <td class="cartPopupItemImageCell">
-          <a href={`/product?_id=${p.product._id}`}>
+          <a href={`/products/product?_id=${p.product._id}`}>
             <Image className="cartPopupImage" src={p.product.mediaUrl} />
           </a>
         </td>
