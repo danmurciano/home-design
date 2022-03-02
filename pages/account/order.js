@@ -41,7 +41,7 @@ export default function Order({ order }) {
           <div class="row cartTotal styled-font-md">
             <div class="col"></div>
             <div class="col-5"> Order Total </div>
-            <div class="col-3 total-col"> ${order.total} </div>
+            <div class="col-3 total-col"> ${order.total.toFixed(2)} </div>
           </div>
         </div>
       </div>

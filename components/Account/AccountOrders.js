@@ -14,7 +14,7 @@ export default function AccountOrders({ orders }) {
           </div>
           <div class="col-2">
             <p class="order-header-top"> TOTAL </p>
-            <p class="order-header-bottom"> {order.total} </p>
+            <p class="order-header-bottom"> {order.total.toFixed(2)} </p>
           </div>
           <div class="col-5">
             <p class="order-header-top"> SHIP TO </p>
