@@ -16,7 +16,7 @@
     "js-cookie": "^2.2.1",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.13.14",
-    "next": "^11.1.4",
+    "next": "^10.2.3",
     "nookies": "^2.5.2",
     "nprogress": "^0.2.0",
     "order-id": "^2.1.2",
