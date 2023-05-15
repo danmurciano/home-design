@@ -9,7 +9,7 @@ import { parseCookies } from "nookies";
 import cookie from "js-cookie";
 
 
-export default function CartPopup({ user, products, handleRemoveFromCart }) {
+export default function CartPopup({ user, products }) {
   const [cartProducts, setCartProducts] = React.useState(products);
   const router = useRouter();
 
