@@ -1,5 +1,5 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-## Getting Started
+### Getting Started
 First, run the development server:
 ```bash
 npm run dev
@@ -7,9 +7,14 @@ npm run dev
 yarn dev
 ```
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+
+Deployed app - [https://home-design-danmurciano.vercel.app/](https://home-design-danmurciano.vercel.app/)
+
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+### Description
 Home Design is a React/ Nextjs based mock web store app. Below is a detailed description of the functionality and underlying logic.
+
 ### Database
 The app uses a MongoDB database with 4 models:
 1. Products - mock products based on IKEA products. Every product has attributes like name, price, description, image etc. Overall, product info has been kept pretty basic. A real world web store might have had more detailed product descriptions, more images and possibly user reviews. For the purpose of this app, all of these seemed beyond necessary.
@@ -18,7 +23,6 @@ The app uses a MongoDB database with 4 models:
 4. Orders - completed orders made by users. Every order is associated with a specific user and includes an array of one or more products. Quantity of each product and price are recorded at the time the order is made. Other product info is not recorded, but can be retrieved using the Product model.
 
 
-#### User Interface
 ### User Interface
 Main app page - allows user to view products, as well as search and filter products by price and category. A logged in user can also add products to cart.
 
@@ -27,7 +31,6 @@ Cart page - allows user to view products in cart, as well as remove products fro
 Account page - shows user basic info and user’s past orders. Every order includes a link to its individual order page, that displays the order info in a little more detail.
 
 
-## Admin Mode
 ### Admin Mode
 A user with role set as “admin” will be directed to the admin section when logging in. The admin section includes a "products" page and an "orders" page.
 
@@ -36,6 +39,5 @@ Products - admin can view products, as well as search and filter. He can also cr
 Orders - allows admin to view orders info, as well as search and filter orders. Further more, it allows to update order status, which records the time the update is done.
 
 
-## Security and Authentication
 ### Security and Authentication
 An unauthenticated user can only view products (as well as search and filter). Trying to access other pages within the app will redirect user to the login / signup page. An authenticated user has access to his / her own account and cart pages. When a user successfully logs in or signs up, a token is being sent to his browser. This token is required by account and cart related api’s, that use it to authenticate the user and send only the data associated with this particular user. An authenticated admin also has access to the admin pages (cart is removed from the navbar, as it is irrelevant). When an admin successfully logs in, he receives both a regular user token and an admin token. The admin token is required by admin api’s, that uses it to authenticate the request as one made by an admin, and send the appropriate data.
